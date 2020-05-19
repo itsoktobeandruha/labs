@@ -1,0 +1,4 @@
+﻿  main.c
+C:\Users\stranger\Desktop\lab_matrix1 — копия\lab_matrix\main.c(14,9): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\stranger\Desktop\lab_matrix1 — копия\lab_matrix\main.c(30,28): warning C4020: treugMatrixDet: слишком много фактических параметров
+  lab_matrix.vcxproj -> C:\Users\stranger\Desktop\lab_matrix1 — копия\Debug\lab_matrix.exe
