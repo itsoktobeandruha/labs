@@ -1,0 +1,10 @@
+﻿  matrix.c
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(62,13): warning C4133: return: несовместимые типы - из "double **" в "int **"
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(81,37): warning C4133: =: несовместимые типы - из "int **" в "double **"
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(70,6): warning C4101: ammount: неиспользованная локальная переменная
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(100,1): warning C4029: объявленный список формальных параметров отличается от объявления
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(126,37): warning C4133: =: несовместимые типы - из "int **" в "double **"
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(118,7): warning C4101: c: неиспользованная локальная переменная
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(111): warning C4716: treugMatrixDet: должна возвращать значение
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(51): warning C4715: checkmatrix: значение возвращается не при всех путях выполнения
+  lab_matrix.vcxproj -> C:\Users\stranger\Desktop\labs\labs\1lab\Debug\lab_matrix.exe
