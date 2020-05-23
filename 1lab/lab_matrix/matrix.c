@@ -96,7 +96,7 @@ void printmatrix(matrix printedmatrix)
 }
 
 
-int treugMatrixDet(matrix M, int n, int temp1, int temp2)
+int diagonalView(matrix M, int n, int temp1, int temp2)
 {
 	double koef;
 	double det = 1;
@@ -110,6 +110,19 @@ int treugMatrixDet(matrix M, int n, int temp1, int temp2)
 	}
 } 
 
+double treugMatrixDet(matrix a, int size, int temp1, int temp2)
+{
+	int det;
+	for (int i = 0, j = 1; i < (size - 1); i++, j++)
+	{
+		diagonalView(a, size, i, j);
+	}
+	for (int i = 0; i < size; i++)
+	{
+		det *= a.mass[i][i];
+	}
+	return det;
+}
 
 
 matrix getRandomMatrix(matrix A, int n)

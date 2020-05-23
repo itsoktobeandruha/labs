@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include "matrix.h"
 #include <time.h>
+#include <stdbool.h>
 
 
 int main()
-{
+{   
+    bool xd = false;
     double det = 1;
     double finalDet;
     FILE* A;
@@ -42,14 +44,7 @@ int main()
         }
         time_t start1, end1;
         start1 = time(NULL);
-        for (int i = 0, j = 1; i < (size - 1); i++, j++)
-        {
-            treugMatrixDet(a, size, i, j);
-        }
-        for (int i = 0; i < size; i++)
-        {
-            det *= a.mass[i][i];
-        }
+        det = treugMatrixDet(a, size, i, j);
         finalDet = det;
         end1 = time(NULL);
         printf("The det is --> %.0lf\n", finalDet);
@@ -57,7 +52,7 @@ int main()
         system("pause");
         printf("\n");
         break;
-    case 2: // HERE I FIND DET FROM RANDOM MATRIX!
+    /*case 2: // HERE I FIND DET FROM RANDOM MATRIX!
         time_t start2, end2;
         start2 = time(NULL);
         srand(time(NULL));

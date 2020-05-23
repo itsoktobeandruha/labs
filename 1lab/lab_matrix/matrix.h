@@ -9,7 +9,8 @@ typedef struct
 errno_t checkmatrix(FILE*);
 int** creatematrix(int, int);
 matrix getmatrix(FILE*);
-int treugMatrixDet(matrix M, int n);
+int diagonalView(matrix M, int n, int temp1, int temp2);
+double treugMatrixDet(matrix a, int size, int temp1, int temp2);
 void printmatrix(matrix ok);
 matrix getRandomMatrix(matrix A, int n);
 
