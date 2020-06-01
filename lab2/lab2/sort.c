@@ -24,16 +24,16 @@ int getSizeFordetectedTXT(FILE* anotherstarttxt)
 {
 	fopen_s(&anotherstarttxt, "files.txt", "r");
 	char* a;
-	int size = 0;
+	int size1 = 0;
 	a = (char*)malloc(255 * sizeof(char));
 	while (!feof(anotherstarttxt))
 	{
 		fgets(a, 255, anotherstarttxt);
-		size++;
+		size1++;
 	}
 	free(a);
 	fclose(anotherstarttxt);
-	return size;
+	return size1;
 }
 int getSizeforFinalTXT(FILE* anotherstart1, char* filename)
 {
@@ -50,11 +50,44 @@ int getSizeforFinalTXT(FILE* anotherstart1, char* filename)
 	return size;
 }
 //this function we use for quick sort!
-int cmp(const void* a, const void* b) 
+/*int cmp(const void* a, const void* b) 
 {
 	return *(int*)a - *(int*)b; 
-}
+}*/
 //in next funcion we sort and print sorted text
+
+void myquicksort(char** a, int first, int last)
+{
+	int* strsize;
+	char* string;
+	string = (char*)malloc(255 * sizeof(char));
+	strsize = (int*)malloc(255 * sizeof(int));
+	int i = first, j = last;
+	double x = strlen(a[(first + last) / 2]);
+	do {
+		while (strlen(a[i]) < x)
+			i++;
+		while (strlen(a[j]) > x)
+			j--;
+
+		if (i <= j)
+		{
+			if (i < j)
+			{
+				string = a[i];
+				a[i] = a[j];
+				a[j] = string;
+			}
+			i++;
+			j--;
+		}
+	} while (i <= j);
+
+	if (i < last)
+		myquicksort(a, i, last);
+	if (first < j)
+		myquicksort(a, first, j);
+}
 char** AddAndSortAndPrint(char** fulltext, FILE* in, int caseChoose, int sizeifneeded)
 {
 	char comp(const char*, const char*);
@@ -100,11 +133,12 @@ char** AddAndSortAndPrint(char** fulltext, FILE* in, int caseChoose, int sizeifn
 		}
 	}*/
 	/// THIS ONE IS QUICK SORT (1 sec)!
-	qsort(fulltext, size1, sizeof(char*),cmp); //qsort works like sonic
-	/*for (int i = 0; i < size1; i++)
+	/*qsort(fulltext, size1, sizeof(char*), cmp);*/
+	myquicksort(fulltext, 0,(size1-1)); //my own qsort works!!!!
+	for (int i = 0; i < size1; i++)
 	{
 		printf("%s", fulltext[i]);                        ////PRINT
-	}*/
+	}
 	printf("\n");
 	return fulltext;
 }
