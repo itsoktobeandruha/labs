@@ -58,10 +58,8 @@ int getSizeforFinalTXT(FILE* anotherstart1, char* filename)
 
 void myquicksort(char** a, int first, int last)
 {
-	int* strsize;
 	char* string;
 	string = (char*)malloc(255 * sizeof(char));
-	strsize = (int*)malloc(255 * sizeof(int));
 	int i = first, j = last;
 	double x = strlen(a[(first + last) / 2]);
 	do {

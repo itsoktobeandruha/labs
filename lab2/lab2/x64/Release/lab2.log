@@ -1,6 +1,9 @@
-﻿  Создание кода
+﻿  sort.c
+C:\Users\stranger\Desktop\labs\labs\lab2\lab2\sort.c(64,1): warning C4244: инициализация: преобразование "size_t" в "double", возможна потеря данных
+C:\Users\stranger\Desktop\labs\labs\lab2\lab2\sort.c(92,6): warning C4101: temp1: неиспользованная локальная переменная
+  Создание кода
   2 of 15 functions (13.3%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
+    0 functions were new in current compilation
     2 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   lab2.vcxproj -> C:\Users\stranger\Desktop\labs\labs\lab2\x64\Release\lab2.exe
