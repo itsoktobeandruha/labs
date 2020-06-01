@@ -1,0 +1,5 @@
+﻿  main.c
+  sort.c
+C:\Users\stranger\Desktop\labs\labs\lab2\lab2\sort.c(61,6): warning C4101: temp1: неиспользованная локальная переменная
+  Создание кода...
+  lab2.vcxproj -> C:\Users\stranger\Desktop\labs\labs\lab2\x64\Debug\lab2.exe

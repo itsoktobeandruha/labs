@@ -5,7 +5,7 @@
 
 
 int main()
-{   
+{
     bool xd = false;
     double det = 1;
     double finalDet;
@@ -23,8 +23,9 @@ int main()
         return 0;
     }
     switch (caseChoose)
-   {
-  case 1: // HERE I FIND DET FROM CONSOLE'S MATRIX!
+    {
+    case 1: // HERE I FIND DET FROM CONSOLE'S MATRIX!
+    {
         printf("Type the str ammount ::  ");
         scanf_s("%d\n", &size);
         a.col = size;
@@ -34,12 +35,12 @@ int main()
         {
             for (int j = 0; j < size; j++)
             {
-                    i++;
-                    j++;
-                    printf("Type element [  %d  ][  %d  ] === ", i, j);
-                    i--;
-                    j--;
-                    scanf_s("%lf", &a.mass[i][j]);
+                i++;
+                j++;
+                printf("Type element [  %d  ][  %d  ] === ", i, j);
+                i--;
+                j--;
+                scanf_s("%lf", &a.mass[i][j]);
             }
         }
         time_t start1, end1;
@@ -52,14 +53,16 @@ int main()
         system("pause");
         printf("\n");
         break;
-    /*case 2: // HERE I FIND DET FROM RANDOM MATRIX!
+    }
+    /*ñase 2: // HERE I FIND DET FROM RANDOM MATRIX!
+    {
         time_t start2, end2;
         start2 = time(NULL);
         srand(time(NULL));
-        size = 1 + rand()%10;
-        a.mass = creatematrix(size,size);
+        size = 1 + rand() % 10;
+        a.mass = creatematrix(size, size);
         a = getRandomMatrix(a, size);
-         for (int i = 0, j = 1; i < (size - 1); i++, j++)
+        for (int i = 0, j = 1; i < (size - 1); i++, j++)
         {
             treugMatrixDet(a, size, i, j);
         }
@@ -73,7 +76,9 @@ int main()
         printf("Time elapsed --> %f\n", difftime(end2, start2));
         system("PAUSE");
         break;
+    }
     case 3: // HERE I FIND DET FROM FILE!
+    {
         time_t start3, end3;
         start3 = time(NULL);
         err = fopen_s(&A, "A.txt", "r");
@@ -109,4 +114,8 @@ int main()
         system("pause");
         return 0;
     }
+    }
+    */
+    }
 }
+    

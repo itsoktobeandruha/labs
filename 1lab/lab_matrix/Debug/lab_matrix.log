@@ -1,9 +1,8 @@
 ﻿  main.c
 C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(19,11): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
-C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(32,44): warning C4133: =: несовместимые типы - из "int **" в "double **"
-C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(47,40): error C2065: i: необъявленный идентификатор
-C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(47,43): error C2065: j: необъявленный идентификатор
-C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(113,1): fatal error C1071: непредвиденное обнаружение конца файла в комментарии
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(33,44): warning C4133: =: несовместимые типы - из "int **" в "double **"
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(48,40): error C2065: i: необъявленный идентификатор
+C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\main.c(48,43): error C2065: j: необъявленный идентификатор
   matrix.c
 C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(62,13): warning C4133: return: несовместимые типы - из "double **" в "int **"
 C:\Users\stranger\Desktop\labs\labs\1lab\lab_matrix\matrix.c(81,37): warning C4133: =: несовместимые типы - из "int **" в "double **"

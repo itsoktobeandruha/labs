@@ -2,7 +2,9 @@
 #include <Windows.h>
 #include <locale.h>
 #include "strsort.h"
+#include <time.h>
 
+//next three functions we use to get sizes!
 int getSize(FILE* anotherstart)
 {
 	fopen_s(&anotherstart, "input.txt", "r");
@@ -14,10 +16,10 @@ int getSize(FILE* anotherstart)
 		fgets(a, 255, anotherstart);
 		size++;
 	}
+	free(a);
 	fclose(anotherstart);
 	return size;
 }
-
 int getSizeFordetectedTXT(FILE* anotherstarttxt)
 {
 	fopen_s(&anotherstarttxt, "files.txt", "r");
@@ -29,10 +31,10 @@ int getSizeFordetectedTXT(FILE* anotherstarttxt)
 		fgets(a, 255, anotherstarttxt);
 		size++;
 	}
+	free(a);
 	fclose(anotherstarttxt);
 	return size;
 }
-
 int getSizeforFinalTXT(FILE* anotherstart1, char* filename)
 {
 	fopen_s(&anotherstart1, filename, "r");
@@ -44,29 +46,38 @@ int getSizeforFinalTXT(FILE* anotherstart1, char* filename)
 		fgets(a, 255, anotherstart1);
 		size++;
 	}
+	free(a);
 	return size;
 }
-
+//this function we use for quick sort!
+int cmp(const void* a, const void* b) 
+{
+	return *(int*)a - *(int*)b; 
+}
+//in next funcion we sort and print sorted text
 char** AddAndSortAndPrint(char** fulltext, FILE* in, int caseChoose, int sizeifneeded)
 {
+	char comp(const char*, const char*);
 	int temp1;
 	char* string;
 	int size1;
 	if (caseChoose == 1 || caseChoose == 2)
 		size1 = getSize(in);
 	else
-		size1 = sizeifneeded;
+ 		size1 = sizeifneeded;
 	string = (char*)malloc(255 * sizeof(char)); // string memory
 	fulltext = (char**)malloc(size1 * sizeof(char*)); //fulltext memeory
 	fseek(in, 0, SEEK_SET);
+	//get text
 	for (int i = 0; i < size1; i++)
 	{
 		fulltext[i] = (char*)malloc(255 * sizeof(char));
 		fgets(fulltext[i], 255, in);
 	}
 	fseek(in, 0, SEEK_SET);
-	int* strsize;
-	strsize = (int*)malloc(255 * sizeof(int));
+	// THIS ONE IS A BUBBLE METHOD
+	/*int* strsize;
+	strsize = (int*)malloc(size1 * sizeof(int));
 	for (int i = 0; i < size1; i++)
 	{
 		strsize[i] = strlen(fulltext[i]);
@@ -87,21 +98,17 @@ char** AddAndSortAndPrint(char** fulltext, FILE* in, int caseChoose, int sizeifn
 				fulltext[j] = string;
 			}
 		}
-	}
-	for (int i = 0; i < size1; i++)
+	}*/
+	/// THIS ONE IS QUICK SORT (1 sec)!
+	qsort(fulltext, size1, sizeof(char*),cmp); //qsort works like sonic
+	/*for (int i = 0; i < size1; i++)
 	{
-		//if (i == 1)
-			//printf("\n");                 // sometimes it helps with \n problems, sometimes not
-		printf("%s", fulltext[i]);
-	}
+		printf("%s", fulltext[i]);                        ////PRINT
+	}*/
 	printf("\n");
-	for (int i = 0; i < size1; i++)
-	{
-		printf("%d\n", strsize[i]);
-	}
 	return fulltext;
 }
-
+//this function we use for case 3
 void detectTXTfiles(char** fulltext)
 {
 	FILE* start;
@@ -117,7 +124,7 @@ void detectTXTfiles(char** fulltext)
 	fseek(start, 0, SEEK_SET);
 	for (int i = 0; i < size1; i++)
 	{
-		fulltextForTXT[i] = (char*)malloc(255 * sizeof(char));
+		fulltextForTXT[i] = (char*)malloc(100 * sizeof(char));
 		fgets(fulltextForTXT[i], 255, start);
 	}
 	fseek(start, 0, SEEK_SET);
@@ -137,4 +144,7 @@ void detectTXTfiles(char** fulltext)
 	int anothersize = getSizeforFinalTXT(finalone, fulltextForTXT[choosefile]);
 	fulltext = AddAndSortAndPrint(fulltext, finalone, 3, anothersize);
 	fclose(finalone);
+	free(fulltext);
+	free(filename);
+	free(fulltextForTXT);
 }
