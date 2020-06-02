@@ -122,19 +122,17 @@ matrix getRandomMatrix(matrix A, int n)
 
 void deleteSTRINGSandCOL(int** M, int size, int row, int col, int** newMatrix) 
 {
-		int offsetRow = 0; //Смещение индекса строки в матрице
-		int offsetCol = 0; //Смещение индекса столбца в матрице
+		int offsetRow = 0; 
+		int offsetCol = 0; 
 		for (int i = 0; i < size - 1; i++) {
-			//Пропустить row-ую строку
 			if (i == row) {
-				offsetRow = 1; //Как только встретили строку, которую надо пропустить, делаем смещение для исходной матрицы
+				offsetRow = 1; 
 			}
 
-			offsetCol = 0; //Обнулить смещение столбца
+			offsetCol = 0; 
 			for (int j = 0; j < size - 1; j++) {
-				//Пропустить col-ый столбец
 				if (j == col) {
-					offsetCol = 1; //Встретили нужный столбец, проускаем его смещением
+					offsetCol = 1; 
 				}
 				newMatrix[i][j] = M[i + offsetRow][j + offsetCol];
 			}
