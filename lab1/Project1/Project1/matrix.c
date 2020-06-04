@@ -99,6 +99,8 @@ matrix getmatrix(FILE* F)
 		for (int count2 = 0; count2 < M.size; count2++)
 			fscanf_s(F, "%d", &M.mass[count1][count2]);
 	fseek(F, 0, SEEK_SET);
+	M.flag = 0;
+	M.deter = 0;
 
 	return M;
 }
@@ -117,6 +119,8 @@ matrix getRandomMatrix(matrix A, int n)
 	for (int count1 = 0; count1 < M.str; count1++)
 		for (int count2 = 0; count2 < M.col; count2++)
 			M.mass[count1][count2] = rand() % 10;
+	M.flag = 0;
+	M.deter = 0;
 	return M;
 }
 
@@ -138,32 +142,42 @@ void deleteSTRINGSandCOL(int** M, int size, int row, int col, int** newMatrix)
 			}
 		}
 }
-int matrixDet(int** matrix, int size)
+int matrixDet(int** matrix_, int size, matrix* A)
 {
-	int det = 0;
-	int degree = 1; 
-	if (size == 1) {
-		return matrix[0][0];
-	}
-	else if (size == 2) {
-		return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
-	}
-	else {
-		int** newMatrix;
-		newMatrix = (int**)malloc((size-1) * sizeof(int*));
-		for (int i = 0; i < size - 1; i++) 
+	if (A->flag == 0)
+	{
+		int det = 0;
+		int degree = 1;
+		if (size == 1) {
+			return matrix_[0][0];
+		}
+		else if (size == 2) {
+			return matrix_[0][0] * matrix_[1][1] - matrix_[0][1] * matrix_[1][0];
+		}
+		else
 		{
-			newMatrix[i] = (int*)malloc((size - 1) * sizeof(int));
+			int** newMatrix;
+			newMatrix = (int**)malloc((size - 1) * sizeof(int*));
+			for (int i = 0; i < size - 1; i++)
+			{
+				newMatrix[i] = (int*)malloc((size - 1) * sizeof(int));
+			}
+			for (int j = 0; j < size; j++)
+			{
+				deleteSTRINGSandCOL(matrix_, size, 0, j, newMatrix);
+				det = det + (degree * matrix_[0][j] * matrixDet(newMatrix, size - 1,A));
+				degree = -degree;
+			}
+			for (int i = 0; i < size - 1; i++) {
+				free(newMatrix[i]);
+			}
+			free(newMatrix);
 		}
-		for (int j = 0; j < size; j++) {
-			deleteSTRINGSandCOL(matrix, size, 0, j, newMatrix);
-			det = det + (degree * matrix[0][j] * matrixDet(newMatrix, size - 1));
-			degree = -degree;
-		}
-		for (int i = 0; i < size - 1; i++) {
-			free(newMatrix[i]);
-		}
-		free(newMatrix);
+		A->flag = 1;
+		A->deter = det;
+		return det;
 	}
-	return det;
+	else
+		return A->deter;
+		
 }

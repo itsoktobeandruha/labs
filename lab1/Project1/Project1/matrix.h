@@ -6,6 +6,8 @@ struct Matrix
 	int** mass;
 	int str, col;
 	int size;
+	int flag;
+	long long deter;
 };
 typedef struct Matrix matrix;
 void printmatrix(matrix printedmatrix);
@@ -14,6 +16,6 @@ matrix getRandomMatrix(matrix A, int n);
 int** creatematrix(int);
 matrix getmatrix(FILE*);
 void deleteSTRINGSandCOL(int** matrix, int size, int row, int col, int** newMatrix);
-int matrixDet(int** matrix, int size);
+int matrixDet(int** matrix_, int size, matrix* A);
 
 #endif

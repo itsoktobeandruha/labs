@@ -41,8 +41,10 @@ int main()
             return 1;
         }
         a = getmatrix(A);
-        det1 = matrixDet(a.mass, a.size);
+        det1 = matrixDet(a.mass, a.size, &a);
         printf("The det is --> %d\n", det1);
+       // det1 = matrixDet(a.mass, a.size, &a);
+        //printf("The det is --> %d\n", det1);
         fclose(A);
         system("pause");
         return 0;
@@ -55,7 +57,7 @@ int main()
         srand(time(NULL));
         a.mass = creatematrix(a.size);
         a = getRandomMatrix(a, a.size);
-        det1 = matrixDet(a.mass, a.size);
+        det1 = matrixDet(a.mass, a.size,&a);
         printf("The det is --> %d\n", det1);
         system("PAUSE");
         break;
@@ -81,7 +83,7 @@ int main()
                 scanf_s("%d", &a.mass[i][j]);
             }
         }
-        det1 = matrixDet(a.mass, a.size);
+        det1 = matrixDet(a.mass, a.size,&a);
         printf("The det is --> %.0lf\n", det1);
         system("pause");
         printf("\n");
