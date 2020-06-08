@@ -22,22 +22,22 @@ typedef struct
 
 void gotoxy(int, int);
 
-void addApple(Apple* apple);
+void addApple(Apple*);
 
 void fieldCreator();
 
-void printSnake(Snake* snake);
+void printSnake(Snake*);
 
-void tailRemover(Snake* snake);
+void tailRemover(Snake*);
 
-void snakeUpgrade(Snake* snake);
+void snakeUpgrade(Snake*);
 
-void snakeGo(Snake* snake);
+void snakeGo(Snake*);
 
-void free_snake(Snake* snake);
+void free_snake(Snake*);
 
-void appleEaten(Apple* apple, Snake* snake);
+void appleEaten(Apple*, Snake*) ;
 
-void printApple(Apple* apple);
+void printApple(Apple*);
 
 #endif // !_SNAKE_H
