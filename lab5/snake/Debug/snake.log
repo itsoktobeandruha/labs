@@ -1,0 +1,8 @@
+﻿  main.c
+C:\Users\stranger\Desktop\snake\snake\main.c(95,29): warning C4020: snakeUpgrade: слишком много фактических параметров
+C:\Users\stranger\Desktop\snake\snake\main.c(107,27): warning C4133: =: несовместимые типы - из "Snake *" в "Snake *"
+C:\Users\stranger\Desktop\snake\snake\main.c(141,22): warning C4133: функция: несовместимые типы - из "char [9]" в "FILE *const "
+C:\Users\stranger\Desktop\snake\snake\main.c(13,9): warning C4101: tmp: неиспользованная локальная переменная
+C:\Users\stranger\Desktop\snake\snake\main.c(25,6): warning C4101: bestScore: неиспользованная локальная переменная
+C:\Users\stranger\Desktop\snake\snake\main.c(24,7): warning C4101: bestPlayer: неиспользованная локальная переменная
+  snake.vcxproj -> C:\Users\stranger\Desktop\snake\Debug\snake.exe
