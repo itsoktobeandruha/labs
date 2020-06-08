@@ -15,11 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="snake_functions.c">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="functions.c">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

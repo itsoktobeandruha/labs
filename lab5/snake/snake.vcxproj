@@ -138,7 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="snake_functions.c" />
+    <ClCompile Include="functions.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
